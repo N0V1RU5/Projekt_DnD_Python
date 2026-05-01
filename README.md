@@ -1,33 +1,33 @@
-# dnd notebook - simple encounter builder
+# D&D API viewer
 
-tento projekt je backend pro spravu dnd oblibenych polozek. umoznuje uzivatelum jednoduse vstupovat do aplikace, prochazet monstra a kouzla z dnd 5e api a ukladat si je do vlastniho profilu.
+Tento projekt je backend pro spravu oblibenych dnd kouzel a priser. Umoznuje uzivatelum jednoduse vstupovat do aplikace, prochazet monstra a kouzla z dnd 5e api a ukladat si je do vlastniho profilu.
 
-## hlavni funkce
-- **auto-registrace**: staci zadat jmeno a jste uvnitr.
-- **sqlite databaze**: uklada uzivatele a jejich oblibene polozky.
-- **dnd 5e api**: taha aktualni data o monstrech a kouzlech.
-- **oblibene**: moznost pridavat a mazat polozky z vlastniho profilu.
+## Hlavni funkce
+- **auto-registrace**: Staci zadat jmeno a jste uvnitr.
+- **sqlite databaze**: Uklada uzivatele a jejich oblibene polozky.
+- **dnd 5e api**: Taha aktualni data o monstrech a kouzlech.
+- **oblibene**: Moznost pridavat a mazat oblibene polozky z vlastniho profilu.
 
-## instalace a spusteni
+## Instalace a spusteni
 
-1. **klonovani repozitare**:
+1. **Klonovani repozitare**:
    ```bash
    git clone <url-tveho-repozitare>
    cd Projekt_DnD_Python1
    ```
 
-2. **nainstalovani knihoven**:
+2. **Nainstalovani knihoven**:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **spusteni serveru**:
+3. **Spusteni serveru**:
    ```bash
    uvicorn app.main:app --reload
    ```
 
-4. **pouzivani**:
-   otevri [http://localhost:8000](http://localhost:8000) v prohlizeci.
+4. **Otevreni stranky**:
+   Otevri [http://localhost:8000](http://localhost:8000) v prohlizeci.
 
 ## struktura kodu
 - `app/main.py`: hlavni logika a routy aplikace.
