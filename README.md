@@ -12,8 +12,8 @@ Tento projekt je backend pro spravu oblibenych dnd kouzel a priser. Umoznuje uzi
 
 1. **Klonovani repozitare**:
    ```bash
-   git clone <url-tveho-repozitare>
-   cd Projekt_DnD_Python1
+   git clone "https://github.com/N0V1RU5/Projekt_DnD_Python"
+   cd Projekt_DnD_Python
    ```
 
 2. **Nainstalovani knihoven**:
