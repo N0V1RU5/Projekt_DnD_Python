@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article>
+    <header><h1>{{ detail.name }}</h1></header>
+    
+    <div class="grid">
+        <div>
+            {% if category_slug == 'monsters' and detail.image %}
+                <img src="https://www.dnd5eapi.co{{ detail.image }}" alt="{{ detail.name }}" style="max-width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+            {% endif %}
+            
+            <h3>Core Stats</h3>
+            <ul>
+                <li><strong>Name:</strong> {{ detail.name }}</li>
+                {% if category_slug == 'monsters' %}
+                    <li><strong>Type:</strong> {{ detail.type }}</li>
+                    <li><strong>Size:</strong> {{ detail.size }}</li>
+                    <li><strong>Alignment:</strong> {{ detail.alignment }}</li>
+                    {% if detail.hit_points %}<li><strong>HP:</strong> {{ detail.hit_points }}</li>{% endif %}
+                {% endif %}
+                
+                {% if category_slug == 'spells' %}
+                    <li><strong>Level:</strong> {{ detail.level }}</li>
+                    <li><strong>School:</strong> {{ detail.school.name }}</li>
+                {% endif %}
+            </ul>
+        </div>
+        
+        <div>
+            {% if user %}
+            <form action="/add-favorite" method="POST">
+                <input type="hidden" name="type" value="{{ category_slug }}">
+                <input type="hidden" name="api_index" value="{{ detail.index }}">
+                <input type="hidden" name="name" value="{{ detail.name }}">
+                <button type="submit" class="contrast">Save to Profile</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+
+    <section>
+        <h3>Description</h3>
+        {% if category_slug == 'monsters' %}
+            <p><strong>Speed:</strong> 
+                {% for k, v in detail.speed.items() %}{{ k }}: {{ v }}{% if not loop.last %}, {% endif %}{% endfor %}
+            </p>
+            <p><strong>Special Abilities:</strong></p>
+            <ul>
+                {% for trait in detail.special_abilities %}
+                    <li><strong>{{ trait.name }}:</strong> {{ trait.desc }}</li>
+                {% else %}
+                    <li>None</li>
+                {% endfor %}
+            </ul>
+            <p><strong>Actions:</strong></p>
+            <ul>
+                {% for action in detail.actions %}
+                    <li><strong>{{ action.name }}:</strong> {{ action.desc }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>{{ detail.desc[0] if detail.desc is iterable and detail.desc is not string else detail.desc }}</p>
+        {% endif %}
+    </section>
+
+    <footer><a href="javascript:history.back()" role="button" class="secondary">Back</a></footer>
+</article>
+{% endblock %}

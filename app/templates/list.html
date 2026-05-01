@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ category }}</h1>
+
+<style>
+    .dnd-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+    }
+    .dnd-card {
+        padding: 0.8rem;
+        text-align: center;
+        font-size: 0.9rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    @media (max-width: 1000px) { .dnd-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 600px) { .dnd-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+
+<div class="dnd-grid">
+    {% for item in items %}
+    <div class="dnd-card">
+        <strong>{{ item.name }}</strong>
+        <a href="/detail/{{ category_slug }}/{{ item.index }}" role="button" class="outline contrast small" style="margin-top: 0.5rem; padding: 0.2rem;">Info</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

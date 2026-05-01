@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>My Profile: {{ user.username }}</h1>
+<div class="grid">
+    <article>
+        <header><h3>Favorites</h3></header>
+        <ul>
+            {% for el in elements %}
+                <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                    <span>
+                        <a href="/detail/{{ el.type }}/{{ el.api_index }}">{{ el.name }}</a> 
+                        <small>({{ el.type }})</small>
+                    </span>
+                    <form action="/remove-favorite" method="POST" style="margin: 0;">
+                        <input type="hidden" name="element_id" value="{{ el.id }}">
+                        <button type="submit" class="secondary outline" style="padding: 0.2rem 0.5rem; font-size: 0.7rem; border-color: #e53935; color: #e53935;">Remove</button>
+                    </form>
+                </li>
+            {% else %}
+                <li>No favorites saved yet.</li>
+            {% endfor %}
+        </ul>
+    </article>
+</div>
+{% endblock %}

@@ -1,33 +1,37 @@
-# D&D Encounter Builder (Python + FastAPI)
+# dnd notebook - simple encounter builder
 
-Tento projekt je backend pro správu D&D encounterů. Umožňuje uživatelům se registrovat, přihlásit a vytvářet si vlastní sady monster, předmětů a kouzel vytažených z D&D 5e API.
+tento projekt je backend pro spravu dnd oblibenych polozek. umoznuje uzivatelum jednoduse vstupovat do aplikace, prochazet monstra a kouzla z dnd 5e api a ukladat si je do vlastniho profilu.
 
-## Funkce
-- **Registrace a Login**: Zabezpečeno pomocí JWT tokenů a hashování hesel (bcrypt).
-- **SQLite Databáze**: Ukládá uživatele a jejich vytvořené encountery.
-- **D&D 5e API**: Dynamické načítání seznamu monster a detailů.
-- **CRUD**: Vytváření a prohlížení vlastních encounterů.
+## hlavni funkce
+- **auto-registrace**: staci zadat jmeno a jste uvnitr.
+- **sqlite databaze**: uklada uzivatele a jejich oblibene polozky.
+- **dnd 5e api**: taha aktualni data o monstrech a kouzlech.
+- **oblibene**: moznost pridavat a mazat polozky z vlastniho profilu.
 
-## Jak spustit
-1. Nainstalujte závislosti:
+## instalace a spusteni
+
+1. **klonovani repozitare**:
+   ```bash
+   git clone <url-tveho-repozitare>
+   cd Projekt_DnD_Python1
+   ```
+
+2. **nainstalovani knihoven**:
    ```bash
    pip install -r requirements.txt
    ```
-2. Vytvořte `.env` soubor (podle `.env.template`):
-   ```bash
-   cp .env.template .env
-   ```
-3. Spusťte server:
+
+3. **spusteni serveru**:
    ```bash
    uvicorn app.main:app --reload
    ```
-4. Otevřete prohlížeč na:
-   - [http://localhost:8000](http://localhost:8000) - API root
-   - [http://localhost:8000/docs](http://localhost:8000/docs) - **Swagger UI (interaktivní dokumentace)**
 
-## Struktura projektu
-- `app/main.py`: Entry point a definice rout.
-- `app/models.py`: Databázové entity (User, Encounter).
-- `app/auth.py`: Autentizace a bezpečnost.
-- `app/api_client.py`: Komunikace s externím D&D API.
-- `app/database.py`: Připojení k SQLite.
+4. **pouzivani**:
+   otevri [http://localhost:8000](http://localhost:8000) v prohlizeci.
+
+## struktura kodu
+- `app/main.py`: hlavni logika a routy aplikace.
+- `app/models.py`: databazove tabulky (sqlalchemy).
+- `app/api_client.py`: komunikace s dnd api.
+- `app/database.py`: nastaveni pripojeni k sqlite.
+- `app/templates/`: html sablony (jinja2 + pico.css).

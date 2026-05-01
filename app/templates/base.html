@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>D&D Notebook</title>
+</head>
+<body>
+    <nav class="container">
+        <ul><li><a href="/"><strong>D&D Notebook</strong></a></li></ul>
+        <ul>
+            <li><a href="/monsters">Monstra</a></li>
+            <li><a href="/spells">Kouzla</a></li>
+            {% if user %}
+                <li><a href="/profile">Můj profil ({{ user.username }})</a></li>
+                <li><a href="/logout" class="secondary">Odhlásit</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <main class="container">
+        {% block content %}
+            {% if not user %}
+                <article style="max-width: 500px; margin: auto;">
+                    <header><h3>Vítejte! Zadejte jméno pro vstup:</h3></header>
+                    <form action="/login" method="POST">
+                        <input type="text" name="username" placeholder="Vaše jméno..." required>
+                        <button type="submit">Vstoupit do aplikace</button>
+                    </form>
+                </article>
+            {% else %}
+                <h1>Vítejte, {{ user.username }}!</h1>
+                <p>Vyberte si kategorii v menu a začněte si ukládat svá oblíbená monstra nebo kouzla.</p>
+            {% endif %}
+        {% endblock %}
+    </main>
+</body>
+</html>
