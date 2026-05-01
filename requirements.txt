@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+databases[sqlite]
+python-multipart
+python-jose[cryptography]
+passlib[bcrypt]
+requests
+python-dotenv
+jinja2
