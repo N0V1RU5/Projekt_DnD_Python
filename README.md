@@ -3,10 +3,10 @@
 Tento projekt je backend pro spravu oblibenych dnd kouzel a priser. Umoznuje uzivatelum jednoduse vstupovat do aplikace, prochazet monstra a kouzla z dnd 5e api a ukladat si je do vlastniho profilu.
 
 ## Hlavni funkce
-- **auto-registrace**: Staci zadat jmeno a jste uvnitr.
+- **auto-registrace**: Staci zadat jmeno a jste uvnitr. <img src="Screenshot 2026-10-10 143505.png" height="400">
 - **sqlite databaze**: Uklada uzivatele a jejich oblibene polozky.
-- **dnd 5e api**: Taha aktualni data o monstrech a kouzlech.
-- **oblibene**: Moznost pridavat a mazat oblibene polozky z vlastniho profilu.
+- **dnd 5e api**: Taha aktualni data o monstrech a kouzlech. <img src="Screenshot 2026-10-10 143530.png" height="300"><img src="Screenshot 2026-10-10 144013.png" height="400">
+- **oblibene**: Moznost pridavat a mazat oblibene polozky z vlastniho profilu. <img src="Screenshot 2026-10-10 144043.png" height="400">
 
 ## Instalace a spusteni
 
